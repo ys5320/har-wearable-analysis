@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=4:mem=16gb:ngpus=1:gpu_type=L40S
+#PBS -l walltime=01:00:00
+#PBS -N har_lstm
+#PBS -o /rds/general/user/ys5320/home/har_project/logs/lstm_train.log
+#PBS -e /rds/general/user/ys5320/home/har_project/logs/lstm_train.err
+
+cd /rds/general/user/ys5320/home/har_project/code
+
+source /rds/general/user/ys5320/home/anaconda3/etc/profile.d/conda.sh
+conda activate eeg
+
+python 01_LSTM_train.py
